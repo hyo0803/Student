@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Lab3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+</head>
+
+<body>
+    <script type="text/babel">
+        const inpStyle = {'margin-left':'10px'}; const resStyle = {'margin-left':'10px', 'font-size': '23px'}; const labStyle = {'margin-bottom':'20px'}; const AnsStyle = {"margin-top":'40px'}; const styling = {'padding': '10px', "margin": "10px", "font-family":
+        'Rockwell', 'font-size':"20px"}; const CalculatorOperations = { '/': (prevValue, nextValue) => prevValue / nextValue, '*': (prevValue, nextValue) => prevValue * nextValue, '+': (prevValue, nextValue) => +prevValue + +nextValue, '-': (prevValue,
+        nextValue) => prevValue - nextValue }; class Calculator extends React.Component { constructor(props){ super(props); this.state = {val1: null, val2:null, oper:null, res:null}; this.onSubmit = this.onSubmit.bind(this); this.onChangeVal1 = this.onChangeVal1.bind(this);
+        this.onChangeVal2 = this.onChangeVal2.bind(this); this.onChangeOper = this.onChangeOper.bind(this); } onSubmit(event){ event.preventDefault(); const {val1, val2, oper} = this.state; const newRes = CalculatorOperations[oper](val1,val2); this.setState({res:
+        newRes});} onChangeVal1(event){ this.setState({val1: event.target.value}) } onChangeVal2(event){ this.setState({val2: event.target.value}) } onChangeOper(event){ this.setState({oper: event.target.value}) } render(){ return(
+        <div class='d-flex flex-column' style={styling}>
+            <h1>Calculator</h1>
+            <form onSubmit={this.onSubmit}>
+                <label style={labStyle}>
+                                Число 1:
+                                <input type="number" name="val1" value={this.state.val1} 
+                                onChange={this.onChangeVal1} style={inpStyle}/>
+                            </label><br/>
+                <label style={labStyle}>
+                                Число 2:
+                                <input type="number" name="val2" value={this.state.val2} 
+                                onChange={this.onChangeVal2} style={inpStyle}/>
+                            </label><br/>
+                <label style={labStyle}>
+                                Опер-я :
+                                <input type="text" name="operation" value={this.state.oper} 
+                                onChange={this.onChangeOper} style={inpStyle}/>
+                            </label><br/>
+                <input type="submit" value="Submit" />
+            </form>
+            <div class='d-flex flex-row' style={AnsStyle}>
+                <h3>Ответ:</h3>
+                <div style={resStyle}>{this.state.res}</div>
+            </div>
+        </div>
+        ) } } ReactDOM.render(
+        <Calculator/>, document.getElementById('app') );
+    </script>
+    <div id="app"> </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
