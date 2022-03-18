@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Lab6</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+        
+        <style>
+            button{
+            width: 100px;
+            height:30px;
+            border-radius: 4px;
+            margin:50px;
+        }
+        .on{
+            color:rgb(250, 246, 246);
+            background-color: rgb(206, 14, 14);
+        }
+        .off{
+            color: black;
+            background-color: white;
+        }
+        </style>
+    </head>
+
+    <body>
+        <script type="text/babel">
+            const firSt={
+                'font-family': 'Arial'
+            }
+            class Hello extends React.Component {
+                render() {
+                    return <div style={firSt}>
+                    <p>Имя: {this.props.name}</p>
+                    <p>Возраст: {this.props.age}</p>
+                    </div>;
+                }
+            }
+            ReactDOM.render(
+              <Hello name="Yasemin" age="19" />,
+              document.getElementById("first")
+          )
+        </script>
+        <div id="first"></div>
+
+        <script type="text/babel">
+            const secondSt={
+                'font-family': 'Arial'
+            }
+            class ClickButton extends React.Component {
+             constructor(props) {
+                 super(props);
+                 this.state = {class: "off", label: "Нажми"};
+                   
+                 this.press = this.press.bind(this);
+             }
+             press(){
+                 let className = (this.state.class==="off")?"on":"off";
+                 this.setState({class: className});
+             }
+             render() {
+                 return (
+                    <div style={secondSt}> Задание 2 - Нажать на кнопку
+                    <button onClick={this.press} className={this.state.class}>{this.state.label}</button>
+                    </div>
+                )
+             }
+         }
+         ReactDOM.render(
+             <ClickButton />,
+             document.getElementById("second")
+         )
+        </script>
+        <div id="second"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
