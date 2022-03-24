@@ -2,7 +2,8 @@
     "name": "helloapp",
     "version": "1.0.0",
     "scripts": {
-        "start": "lite-server"
+        "start": "lite-server",
+        "stop": "pkill --signal SIGINT lite-server"
     },
     "devDependencies": {
         "lite-server": "^2.2.1"
