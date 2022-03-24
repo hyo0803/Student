@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(167, 250, 199);
+    font-family: 'Mukta', sans-serif;
+}
+
+h3 {
+    font-family: Verdana, Geneva, Tahoma;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid .dat {
+    position: relative;
+    right: 0px;
+    font-size: 18px;
+    text-align: right;
+    margin: 10px;
+}
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    width: 100%
+}
+
+.btn {
+    margin: 15px;
+    width: 15%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(197, 79, 0)
+}
+
+ul {
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+}
